@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<body class="d-xxl-flex d-flex flex-column min-vh-100"><!-- Start: Navbar With Button -->
+  <nav class="navbar navbar-light navbar-expand-md py-3">
+    <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span
+          class="bs-icon-lg bs-icon-rounded bs-icon-primary-light d-flex justify-content-center align-items-center me-2 bs-icon"><svg
+            xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16"
+            class="bi bi-house-door-fill">
+            <path
+              d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z">
+            </path>
+          </svg></span></a><button class="navbar-toggler" data-bs-toggle="collapse"><span class="visually-hidden">Toggle
+          navigation</span><span class="navbar-toggler-icon"></span></button></div>
+  </nav><!-- End: Navbar With Button -->
+  <div class="container py-4 py-xl-5">
+    <div class="row mb-5">
+      <div class="col-md-8 col-xl-6 text-center mx-auto">
+        <h2>экспонаты</h2>
+      </div>
+    </div>
+    <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+      {% for exhibit in exhibits %}
+      <div class="col">
+        <div><img class="rounded img-fluid d-block w-100 fit-cover" style="height: 200px;"
+            src="{{ exhibit.image.url }}">
+          <div class="py-4">
+            <h4>{{ exhibit.title }}</h4>
+            <p>{{ exhibit.description }}</p>
+              <audio class="d-xxl-flex" controls="" style="width: 100%;">  <source src="{{ exhibit.audio.url }}">Your browser does not support the audio element.</audio>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <footer class="mt-auto">
+    <div class="container text-center">
+      <p>Copyright ©&nbsp;SuslickeTEAM 2023</p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/js/script.min.js?h=e141ba749a4b7c929490f2add43b2869"></script>
+</body>
+
+</html>
+
+{% endblock %}
