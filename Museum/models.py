@@ -11,10 +11,7 @@ def validate_image_size(image):
         raise ValidationError("Максимальные допустимые размеры изображения - 972x422 пикселей.")
 
 class Event(models.Model):
-    title = models.CharField(max_length=200)
-    date = models.DateField()
     image = models.ImageField(upload_to='media/event/', validators=[validate_image_size])
-    description = models.TextField()
 
     class Meta:
         verbose_name_plural = 'События'
@@ -22,7 +19,6 @@ class Event(models.Model):
 class Category(models.Model):
     title = models.CharField(max_length=100)
     image = models.ImageField(upload_to='media/category/', validators=[validate_image_size])
-    description = models.TextField()
 
     class Meta:
         verbose_name_plural = 'Категории'
