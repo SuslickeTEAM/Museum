@@ -64,4 +64,3 @@ Feel free to submit issues or pull requests. Contributions are welcome!
 For inquiries or support, reach out to:
 - [SuslickeTEAM GitHub](https://github.com/SuslickeTEAM/Museum)
 - [Lagbag GitHub](https://github.com/Lagbag)
-```
