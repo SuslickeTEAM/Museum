@@ -2,42 +2,45 @@
 {% load static %}
 {% block content %}
 
-<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
+    <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
     <nav class="navbar navbar-light navbar-expand-md fixed-top" id="mainNav">
-        <div class="container"><a class="navbar-brand" href="#"></a><button data-bs-toggle="collapse"
-                class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" type="button"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu"><i
-                    class="fa fa-bars"></i></button>
+        <div class="container"><a class="navbar-brand" href="#"></a>
+            <button data-bs-toggle="collapse"
+                    class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" type="button"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu">
+                <i
+                        class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item nav-link"><a class="nav-link active" href="#header">Главная</a></li>
                     <li class="nav-item nav-link"><a class="nav-link" href="#category">Категории</a></li>
-                    <li class="nav-item nav-link"><a class="nav-link" href="#updates">ОБновления</a></li>
-                    <li class="nav-item nav-link"><a class="nav-link" href="#about">о нас</a></li>
+                    <li class="nav-item nav-link"><a class="nav-link" href="#updates">Обновления</a></li>
+                    <li class="nav-item nav-link"><a class="nav-link" href="#about">О нас</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <header class="masthead position-relative d-xxl-flex justify-content-xxl-center align-items-xxl-center" id="header">
-        <div id="panorama" style="width: 100vw; height: 100vh;"></div>
-        <div id="main" class="intro-body position-absolute top-50 start-50 translate-middle">
+
+    <header class="masthead position-relative" id="header" style="width: 100vw; height: 100vh; overflow: hidden;">
+        <div id="panorama" style="width: 100%; height: 100vh; position: relative; z-index: 1;"></div>
+        <div id="main" class="intro-body position-absolute top-50 start-50 translate-middle text-center"
+             style="z-index: 2; pointer-events: none;">
             <div class="container">
                 <div id="intro-row" class="row">
                     <div class="col-lg-8 mx-auto">
-                        <h3 id="heading" class="display-1 fw-bold" style="text-shadow: 0px 5px 5px var(--bs-black);">ДОБРО ПОЖАЛОВАТЬ</h3>
+                        <h3 id="heading" class="display-1 fw-bold" style="text-shadow: 0px 5px 5px var(--bs-black);">
+                            ДОБРО ПОЖАЛОВАТЬ</h3>
                         <p id="paragraph" class="intro-text text-light">В музей им. "Олега Позднякова"</p>
-                        <a class="btn btn-link btn-circle" role="button" href="#category">
-                            <i class="fa fa-angle-double-down animated"></i>
-                        </a>
                     </div>
                 </div>
             </div>
         </div>
+        <a class="btn btn-link btn-circle position-absolute" role="button" href="#category"
+           style="position: fixed; bottom: 20px; z-index: 3;">
+            <i class="fa fa-angle-double-down animated"></i>
+        </a>
     </header>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/105/three.min.js" integrity="sha512-uWKImujbh9CwNa8Eey5s8vlHDB4o1HhrVszkympkm5ciYTnUEQv3t4QHU02CUqPtdKTg62FsHo12x63q6u0wmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    
-    <script src="{% static 'js/panolens.min.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
+
     <div id="category" class="d-flex d-xl-flex justify-content-center align-items-center align-items-xl-center">
         <div class="container">
             <div class="row text-center">
@@ -47,73 +50,82 @@
             </div>
             <div class="row row-cols-1 row-cols-md-2 g-4">
                 {% for category in categories %}
-                <div class="col"><a class="d-block image-link text-decoration-none" href="{% url 'exhibits' category.pk %}">
-                    <img class="image" src="{{ category.image.url }}" alt="..." />
+                    <div class="col"><a class="d-block image-link text-decoration-none"
+                                        href="{% url 'exhibits' category.pk %}">
+                        <img class="image" src="{{ category.image.url }}" alt="..."/>
                         <div class="overlay"></div>
                         <div class="image-info">
                             <h5 class="title">{{ category.title }}</h5>
                         </div>
                     </a>
-                </div>
+                    </div>
                 {% endfor %}
             </div>
         </div>
     </div>
-        <section class="text-center d-flex d-xl-flex justify-content-center align-items-center align-items-xl-center"
-            id="updates">
-            <div class="container-md">
-                <h2>Обновления</h2>
-                <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        {% for event in events %}
+
+    <section class="text-center d-flex d-xl-flex justify-content-center align-items-center align-items-xl-center"
+             id="updates">
+        <div class="container-md">
+            <h2>Обновления</h2>
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    {% for event in events %}
                         <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}"
-                            data-bs-interval="2000">
+                             data-bs-interval="2000">
                             <img class="d-block w-100" src="{{ event.image.url }}" alt="...">
                         </div>
-                        {% endfor %}
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
+                    {% endfor %}
                 </div>
-        </section>
-        <section class="text-center d-flex d-xl-flex justify-content-center align-items-center align-items-xl-center"
-            id="about">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <h2>О НАС</h2>
-                        <h5>Музей Боевой Славы именни Олега Позднякова</h5>
-                        <p>Школьный музей был открыт 5 мая 1975г. В память о героических страницах Великой Отечественной
-                            войны. Основную экспозицию музея составляют экспонаты времён Велиой Отечественной войны.</p>
-                        <p>Одним из центров воспитательной работы в школе является музей Боевой Славы имени Позднякова
-                            Олега
-                            Николаевича, на его базе работает клуб «Память», основной задачей которого является
-                            патриотическое воспитание обучающихся.</p>
-                        <p>Основными направлениями в работе музея являся: изучение материалов об истории боевого пути
-                            301
-                            БАД и материалов о выпускниках школы погибших в Афганской и Чеченской войнах: Олега
-                            Позднякова
-                            Юрия Захарова, Романа Башмакова и Сергея Жигальцева, подполковника полиции Сергея Богданова.
-                        </p>
-                    </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="text-center d-flex d-xl-flex justify-content-center align-items-center align-items-xl-center"
+             id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2>О НАС</h2>
+                    <h5>Музей Боевой Славы именни Олега Позднякова</h5>
+                    <p>Школьный музей был открыт 5 мая 1975г. В память о героических страницах Великой Отечественной
+                        войны. Основную экспозицию музея составляют экспонаты времён Велиой Отечественной войны.</p>
+                    <p>Одним из центров воспитательной работы в школе является музей Боевой Славы имени Позднякова
+                        Олега
+                        Николаевича, на его базе работает клуб «Память», основной задачей которого является
+                        патриотическое воспитание обучающихся.</p>
+                    <p>Основными направлениями в работе музея являся: изучение материалов об истории боевого пути
+                        301
+                        БАД и материалов о выпускниках школы погибших в Афганской и Чеченской войнах: Олега
+                        Позднякова
+                        Юрия Захарова, Романа Башмакова и Сергея Жигальцева, подполковника полиции Сергея Богданова.
+                    </p>
                 </div>
             </div>
-        </section><!-- Start: Map Clean -->
-        <div class="map-clean"></div><!-- End: Map Clean -->
-        <footer>
-            <div class="container text-center">
-                <p>Copyright ©&nbsp;<a href="https://github.com/SuslickeTEAM">SuslickeTEAM</a> 2023</p>
-            </div>
-        </footer>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="/assets/js/script.min.js?h=e141ba749a4b7c929490f2add43b2869"></script>
-</body>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <p>Copyright ©&nbsp;<a href="https://github.com/SuslickeTEAM">SuslickeTEAM</a> 2023-2025</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/105/three.min.js"
+            integrity="sha512-uWKImujbh9CwNa8Eey5s8vlHDB4o1HhrVszkympkm5ciYTnUEQv3t4QHU02CUqPtdKTg62FsHo12x63q6u0wmg=="
+            crossorigin="anonymous"></script>
+    <script src="{% static 'js/panolens.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    </body>
 {% endblock %}
