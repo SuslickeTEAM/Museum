@@ -173,3 +173,6 @@ logs/
 
 # Ruff
 .ruff_cache/
+
+# Claude AI
+.claude/
