@@ -1,0 +1,3 @@
+"""
+Museum application tests package.
+"""
