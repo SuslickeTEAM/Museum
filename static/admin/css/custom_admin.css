@@ -1,0 +1,735 @@
+/* =============================================================================
+   DJANGO ADMIN - DARK MUSEUM THEME
+   Fixed Layout & Proper Styling
+   ============================================================================= */
+
+:root {
+    --admin-primary: #a31515;
+    --admin-primary-dark: #7d0f0f;
+    --admin-accent: #d4b881;
+    --admin-secondary: #1e2936;
+
+    --admin-bg: #0f1419;
+    --admin-bg-light: #1a1f2e;
+    --admin-bg-lighter: #252b3b;
+
+    --admin-text: #f8fafc;
+    --admin-text-muted: #94a3b8;
+
+    --admin-border: #334155;
+    --admin-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* =============================================================================
+   BASE OVERRIDES
+   ============================================================================= */
+
+body {
+    background: var(--admin-bg) !important;
+    color: var(--admin-text) !important;
+    font-family: 'Segoe UI', system-ui, sans-serif !important;
+}
+
+/* =============================================================================
+   HEADER
+   ============================================================================= */
+
+#header {
+    background: linear-gradient(135deg, var(--admin-primary), var(--admin-secondary)) !important;
+    color: white !important;
+    padding: 15px 20px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+#branding h1 {
+    margin: 0;
+    padding: 8px 0;
+    font-weight: 700 !important;
+    font-size: 24px !important;
+}
+
+#branding h1 a:link,
+#branding h1 a:visited {
+    color: white !important;
+    text-decoration: none;
+}
+
+#user-tools {
+    float: right;
+    padding: 0;
+    margin: 0;
+    text-align: right;
+}
+
+#user-tools a {
+    color: var(--admin-accent) !important;
+    margin-left: 15px;
+    font-weight: 600;
+    padding: 6px 12px;
+    background: rgba(212, 184, 129, 0.1);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+#user-tools a:hover {
+    background: var(--admin-accent);
+    color: var(--admin-secondary) !important;
+}
+
+/* =============================================================================
+   BREADCRUMBS
+   ============================================================================= */
+
+.breadcrumbs {
+    background: var(--admin-bg-light) !important;
+    padding: 12px 20px !important;
+    border: none !important;
+    color: var(--admin-text-muted) !important;
+}
+
+.breadcrumbs a {
+    color: var(--admin-accent) !important;
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+    color: var(--admin-primary) !important;
+}
+
+/* =============================================================================
+   CONTENT AREA
+   ============================================================================= */
+
+#content {
+    padding: 20px !important;
+}
+
+#content-main {
+    float: left;
+    width: 100%;
+}
+
+#content-related {
+    float: right;
+    width: 260px;
+    position: relative;
+    margin-left: -300px;
+}
+
+/* =============================================================================
+   MODULES & CARDS
+   ============================================================================= */
+
+.module {
+    background: var(--admin-bg-light) !important;
+    border: 1px solid var(--admin-border) !important;
+    border-radius: 12px !important;
+    margin-bottom: 20px !important;
+    overflow: hidden;
+}
+
+.module h2,
+.module caption {
+    background: linear-gradient(135deg, var(--admin-primary), var(--admin-primary-dark)) !important;
+    color: white !important;
+    padding: 12px 15px !important;
+    margin: 0 !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.module table {
+    width: 100%;
+}
+
+/* =============================================================================
+   TABLES
+   ============================================================================= */
+
+#result_list {
+    width: 100% !important;
+    border: none !important;
+}
+
+#result_list thead th {
+    background: var(--admin-bg-lighter) !important;
+    color: var(--admin-text) !important;
+    padding: 12px 10px !important;
+    text-align: left !important;
+    border-bottom: 2px solid var(--admin-primary) !important;
+    font-weight: 700 !important;
+    white-space: nowrap;
+}
+
+#result_list thead th a {
+    color: var(--admin-text) !important;
+    text-decoration: none;
+}
+
+#result_list tbody tr {
+    background: var(--admin-bg-light) !important;
+    border-bottom: 1px solid var(--admin-border) !important;
+}
+
+#result_list tbody tr:hover {
+    background: var(--admin-bg-lighter) !important;
+}
+
+#result_list tbody td {
+    padding: 12px 10px !important;
+    color: var(--admin-text-muted) !important;
+}
+
+#result_list tbody td a {
+    color: var(--admin-accent) !important;
+    text-decoration: none;
+}
+
+#result_list tbody td a:hover {
+    color: var(--admin-primary) !important;
+}
+
+/* Alternating rows */
+#result_list tbody tr:nth-child(even) {
+    background: var(--admin-bg) !important;
+}
+
+/* =============================================================================
+   FORMS
+   ============================================================================= */
+
+form .form-row {
+    padding: 15px;
+    border-top: 1px solid var(--admin-border);
+}
+
+label {
+    color: var(--admin-text) !important;
+    font-weight: 600 !important;
+    display: block;
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="url"],
+input[type="number"],
+textarea,
+select {
+    background: var(--admin-bg) !important;
+    border: 2px solid var(--admin-border) !important;
+    color: var(--admin-text) !important;
+    padding: 8px 12px !important;
+    border-radius: 6px !important;
+    width: 100% !important;
+    max-width: 600px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none !important;
+    border-color: var(--admin-primary) !important;
+    background: var(--admin-bg-light) !important;
+}
+
+textarea {
+    min-height: 100px;
+}
+
+/* =============================================================================
+   BUTTONS
+   ============================================================================= */
+
+.button,
+input[type="submit"],
+input[type="button"],
+button,
+.submit-row input {
+    background: linear-gradient(135deg, var(--admin-primary), var(--admin-primary-dark)) !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    cursor: pointer;
+    text-decoration: none !important;
+    display: inline-block;
+    transition: all 0.2s;
+}
+
+.button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.button.default,
+input[type="submit"].default {
+    background: linear-gradient(135deg, var(--admin-accent), #b39a6b) !important;
+    color: var(--admin-secondary) !important;
+}
+
+.deletelink,
+.deletelink-box a {
+    background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+}
+
+/* =============================================================================
+   SUBMIT ROW
+   ============================================================================= */
+
+.submit-row {
+    background: var(--admin-bg-lighter) !important;
+    padding: 15px !important;
+    margin: 0 !important;
+    border: none !important;
+    text-align: left !important;
+}
+
+.submit-row input,
+.submit-row a {
+    margin: 0 5px 0 0 !important;
+}
+
+/* =============================================================================
+   MESSAGES
+   ============================================================================= */
+
+.messagelist {
+    padding: 0;
+    margin: 0 0 20px 0;
+    list-style: none;
+}
+
+.messagelist li {
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    border-left: 4px solid;
+}
+
+.messagelist .success {
+    background: rgba(16, 185, 129, 0.15) !important;
+    border-left-color: #10b981;
+    color: #10b981 !important;
+}
+
+.messagelist .warning {
+    background: rgba(245, 158, 11, 0.15) !important;
+    border-left-color: #f59e0b;
+    color: #f59e0b !important;
+}
+
+.messagelist .error {
+    background: rgba(239, 68, 68, 0.15) !important;
+    border-left-color: #ef4444;
+    color: #ef4444 !important;
+}
+
+.messagelist .info {
+    background: rgba(59, 130, 246, 0.15) !important;
+    border-left-color: #3b82f6;
+    color: #3b82f6 !important;
+}
+
+/* =============================================================================
+   PAGINATION
+   ============================================================================= */
+
+.paginator {
+    color: var(--admin-text-muted);
+    padding: 15px 0;
+}
+
+.paginator a:link,
+.paginator a:visited {
+    color: var(--admin-accent) !important;
+    padding: 6px 12px;
+    border: 1px solid var(--admin-border);
+    border-radius: 6px;
+    text-decoration: none;
+    margin: 0 2px;
+    background: var(--admin-bg-light);
+}
+
+.paginator a:hover {
+    background: var(--admin-primary);
+    border-color: var(--admin-primary);
+    color: white !important;
+}
+
+.paginator .this-page {
+    background: var(--admin-primary);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin: 0 2px;
+}
+
+/* =============================================================================
+   CHANGEFORM
+   ============================================================================= */
+
+.change-form {
+    background: var(--admin-bg-light);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+fieldset.module {
+    background: var(--admin-bg-light) !important;
+    border: 1px solid var(--admin-border) !important;
+    border-radius: 12px !important;
+    padding: 15px !important;
+}
+
+fieldset h2 {
+    background: linear-gradient(135deg, var(--admin-primary), var(--admin-secondary)) !important;
+    color: white !important;
+    padding: 10px 15px !important;
+    margin: -15px -15px 15px -15px !important;
+    border-radius: 12px 12px 0 0 !important;
+}
+
+.collapse.collapsed h2,
+.collapse h2 {
+    cursor: pointer;
+}
+
+/* =============================================================================
+   RELATED WIDGET WRAPPER
+   ============================================================================= */
+
+.related-widget-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.related-widget-wrapper select {
+    flex: 1;
+}
+
+.related-widget-wrapper-link {
+    margin-left: 10px;
+}
+
+/* =============================================================================
+   FILTERS
+   ============================================================================= */
+
+#changelist-filter {
+    background: var(--admin-bg-light) !important;
+    border-left: 1px solid var(--admin-border) !important;
+    padding: 15px !important;
+}
+
+#changelist-filter h2 {
+    color: var(--admin-text) !important;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+#changelist-filter h3 {
+    color: var(--admin-accent) !important;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 15px 0 8px;
+}
+
+#changelist-filter li {
+    padding: 5px 0;
+}
+
+#changelist-filter a {
+    color: var(--admin-text-muted) !important;
+    text-decoration: none;
+}
+
+#changelist-filter a:hover {
+    color: var(--admin-primary) !important;
+}
+
+#changelist-filter a.selected {
+    color: var(--admin-primary) !important;
+    font-weight: 700;
+}
+
+/* =============================================================================
+   SEARCH
+   ============================================================================= */
+
+#toolbar {
+    background: var(--admin-bg-light);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+#searchbar {
+    background: var(--admin-bg) !important;
+    border: 2px solid var(--admin-border) !important;
+    color: var(--admin-text) !important;
+    padding: 8px 12px !important;
+    border-radius: 6px !important;
+}
+
+/* =============================================================================
+   OBJECT TOOLS
+   ============================================================================= */
+
+.object-tools {
+    float: right;
+    margin-left: 10px;
+}
+
+.object-tools li {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.object-tools a {
+    background: linear-gradient(135deg, var(--admin-accent), #b39a6b) !important;
+    color: var(--admin-secondary) !important;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.object-tools a:hover {
+    opacity: 0.9;
+}
+
+/* =============================================================================
+   LOGIN PAGE
+   ============================================================================= */
+
+#login {
+    background: var(--admin-bg-light);
+    border: 1px solid var(--admin-border);
+    border-radius: 12px;
+}
+
+#login #header {
+    border-radius: 12px 12px 0 0;
+}
+
+#login form {
+    padding: 20px;
+}
+
+#login .form-row {
+    padding: 10px 0;
+}
+
+/* =============================================================================
+   INLINE FORMSETS
+   ============================================================================= */
+
+.inline-group {
+    background: var(--admin-bg-lighter);
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.inline-group .tabular {
+    overflow-x: auto;
+}
+
+.inline-related {
+    background: var(--admin-bg);
+    border: 1px solid var(--admin-border);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+
+/* =============================================================================
+   HELP TEXT
+   ============================================================================= */
+
+.help,
+p.help,
+.helptext {
+    color: var(--admin-text-muted) !important;
+    font-size: 12px;
+    font-style: italic;
+    margin: 5px 0 0 0;
+}
+
+/* =============================================================================
+   ERROR LIST
+   ============================================================================= */
+
+.errorlist {
+    background: rgba(239, 68, 68, 0.15);
+    border-left: 4px solid #ef4444;
+    border-radius: 6px;
+    padding: 10px 15px;
+    margin: 10px 0;
+    color: #ef4444 !important;
+    list-style: none;
+}
+
+.errorlist li {
+    font-weight: 600;
+}
+
+/* =============================================================================
+   CALENDAR WIDGET
+   ============================================================================= */
+
+.calendarbox,
+.calendarbox table {
+    background: var(--admin-bg-light) !important;
+}
+
+.calendarbox th {
+    background: var(--admin-primary) !important;
+    color: white !important;
+}
+
+.calendarbox td {
+    background: var(--admin-bg) !important;
+    color: var(--admin-text) !important;
+}
+
+.calendarbox td a {
+    color: var(--admin-text) !important;
+}
+
+.calendarbox td a:hover {
+    background: var(--admin-primary) !important;
+    color: white !important;
+}
+
+/* =============================================================================
+   DASHBOARD
+   ============================================================================= */
+
+.dashboard .module {
+    float: left;
+    width: 48%;
+    margin-right: 2%;
+}
+
+.dashboard .module:nth-child(2n) {
+    margin-right: 0;
+}
+
+.dashboard .module table {
+    width: 100%;
+}
+
+.dashboard .module td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.dashboard .module td a {
+    color: var(--admin-accent) !important;
+    text-decoration: none;
+}
+
+/* =============================================================================
+   ACTIONS
+   ============================================================================= */
+
+.actions {
+    background: var(--admin-bg-lighter);
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.actions select {
+    background: var(--admin-bg) !important;
+    border: 2px solid var(--admin-border) !important;
+    color: var(--admin-text) !important;
+    padding: 6px 10px !important;
+    border-radius: 6px !important;
+}
+
+.actions .button {
+    margin-left: 10px;
+}
+
+/* =============================================================================
+   SELECTOR
+   ============================================================================= */
+
+.selector {
+    background: var(--admin-bg-light);
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+}
+
+.selector .selector-available,
+.selector .selector-chosen {
+    background: var(--admin-bg) !important;
+}
+
+.selector select {
+    background: var(--admin-bg) !important;
+    color: var(--admin-text) !important;
+    border: 1px solid var(--admin-border) !important;
+}
+
+/* =============================================================================
+   SCROLLBAR
+   ============================================================================= */
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--admin-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--admin-primary);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--admin-primary-dark);
+}
+
+/* =============================================================================
+   SELECTION
+   ============================================================================= */
+
+::selection {
+    background: var(--admin-primary);
+    color: white;
+}
+
+/* =============================================================================
+   RESPONSIVE
+   ============================================================================= */
+
+@media (max-width: 768px) {
+    .dashboard .module {
+        float: none;
+        width: 100%;
+        margin-right: 0;
+    }
+
+    #content-related {
+        float: none;
+        width: 100%;
+        margin-left: 0;
+    }
+}
