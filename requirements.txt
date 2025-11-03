@@ -1,0 +1,20 @@
+# Core dependencies
+asgiref==3.8.1
+Django==5.1.2
+pillow==11.0.0
+python-dotenv==1.0.1
+sqlparse==0.5.1
+tzdata==2024.2
+
+# Database
+psycopg2-binary==2.9.9
+
+# Admin interface
+django-unfold==0.69.0
+
+# Production server
+gunicorn==21.2.0
+whitenoise==6.6.0
+
+# Development tools
+django-debug-toolbar==4.4.6
